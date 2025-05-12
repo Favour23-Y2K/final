@@ -1,0 +1,82 @@
+1. Use Server side events for notifications and friend add
+2. Use polling for displaying new (unseen) posts (button to refresh feeds)
+3. Use Web Sockets for real-time messaging
+4. On posts without comments, large banner
+5. On posts with comments, small banner
+6. Logout to include database updates (check how that comes in handy)
+
+To implement a "load more" feature in JavaScript when the user scrolls, you can use the `IntersectionObserver` API, which efficiently detects when an element (like a "load more" div at the bottom) enters the viewport. When it does, you can trigger an AJAX request to load more content and add it to the page.
+
+Here’s a basic example of how to implement this:
+
+### HTML Structure
+
+```html
+<div id="content">
+    <!-- Content items will be loaded here -->
+</div>
+<div id="load-more-trigger"></div>
+```
+
+### CSS (Optional)
+
+You might want to style the loading trigger to be invisible or minimally visible.
+
+```css
+#load-more-trigger {
+    height: 1px;
+    margin-top: 20px;
+}
+```
+
+### JavaScript
+
+Here's how you can set up the Intersection Observer to detect when the `load-more-trigger` div is visible, and then load more content:
+
+```javascript
+document.addEventListener("DOMContentLoaded", function () {
+    // Select the container and the loading trigger
+    const contentContainer = document.getElementById("content");
+    const loadMoreTrigger = document.getElementById("load-more-trigger");
+
+    // Function to load more content (simulated AJAX request)
+    function loadMoreContent() {
+        // Simulate an AJAX call with a delay
+        setTimeout(() => {
+            for (let i = 0; i < 5; i++) {
+                const newItem = document.createElement("div");
+                newItem.classList.add("item");
+                newItem.textContent = `New Content Item ${Math.floor(Math.random() * 1000)}`;
+                contentContainer.appendChild(newItem);
+            }
+        }, 500);
+    }
+
+    // Set up the IntersectionObserver
+    const observer = new IntersectionObserver((entries) => {
+        // Check if the trigger element is intersecting
+        if (entries[0].isIntersecting) {
+            loadMoreContent();
+        }
+    }, {
+        rootMargin: "0px",
+        threshold: 1.0,
+    });
+
+    // Observe the load-more trigger element
+    observer.observe(loadMoreTrigger);
+});
+```
+
+### Explanation
+
+1. **Content Container**: The content container holds your dynamically loaded content.
+2. **Load Trigger**: The `load-more-trigger` div, positioned at the bottom, triggers content loading when it enters the viewport.
+3. **IntersectionObserver**: This observes when `load-more-trigger` appears in the viewport, calling `loadMoreContent` when it does.
+4. **AJAX Simulation**: In `loadMoreContent`, I used `setTimeout` to mimic a server call. Replace this with actual AJAX requests if necessary, depending on your setup.
+
+### Notes
+
+- Adjust the `rootMargin` and `threshold` in the `IntersectionObserver` as needed.
+- Customize the `loadMoreContent` function to pull data from a server (e.g., with `fetch` or `XMLHttpRequest`).
+- Remember to stop observing the `load-more-trigger` if no more content is available to avoid redundant calls.

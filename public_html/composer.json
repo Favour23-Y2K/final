@@ -1,0 +1,15 @@
+{
+    "autoload": {
+        "psr-4": {
+            "MyApp\\": "src"
+        }
+    },
+
+    "require": {
+        "phpmailer/phpmailer": "^6.9",
+        "cboden/ratchet": "^0.4.4",
+        "php-amqplib/php-amqplib": "^3.7",
+        "textalk/websocket": "^1.5",
+        "ratchet/pawl": "^0.4.1"
+    }
+}

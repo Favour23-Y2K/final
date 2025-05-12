@@ -1,0 +1,51 @@
+/* The app is designed to not strain the eyes of its users over longterm */
+
+
+
+
+
+body,
+footer#bottom,
+footer#bottom > #nav,
+footer#bottom > #nav > .nav,
+footer#bottom > #nav > .nav * {
+    background-color: var(--light) !important;
+}
+
+header#top,
+header#top > h4 {
+    background-color: #d7bd87 !important;
+}
+
+div#llyne_connect {
+    background-color: var(--light) !important;
+}
+
+div.profile div.modal-content,
+div.open,
+div.QRCodeModal {
+    background-color: var(--light) !important;
+}
+
+textarea,
+input[type=text] {
+    background-color: #d7bc8736 !important;
+    border: .025em dashed var(--dark) !important;
+}
+
+* {
+    border-color: var(--gray) !important;
+}
+
+div.wide-open header {
+    border: .025em dashed var(--dark) !important;
+}
+header > div.dropdown *,
+header > div.dropdown > a {
+    background-color: #d7bc87ee !important;
+}
+
+div.wide-open header,
+div.wide-open header > a > button {
+    background-color: #d7bc87ee !important;
+}

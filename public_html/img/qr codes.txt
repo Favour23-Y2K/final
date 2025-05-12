@@ -1,0 +1,21 @@
+Adding image over another image
+QR should be sized 450 x 450
+
+       $photo_to_paste="image_to_paste.jpg";  //image 321 x 400
+       $white_image="white_image.jpg"; //873 x 622 
+
+        $im = imagecreatefromjpeg($white_image);
+        $condicion = GetImageSize($photo_to_paste); // image format?
+
+        if($condicion[2] == 1) //gif
+        $im2 = imagecreatefromgif("$photo_to_paste");
+        if($condicion[2] == 2) //jpg
+        $im2 = imagecreatefromjpeg("$photo_to_paste");
+        if($condicion[2] == 3) //png
+        $im2 = imagecreatefrompng("$photo_to_paste");
+
+        imagecopy($im, $im2, (imagesx($im)/2)-(imagesx($im2)/2), (imagesy($im)/2)-(imagesy($im2)/2), 0, 0, imagesx($im2), imagesy($im2));
+
+        imagejpeg($im,"test4.jpg",90);
+        imagedestroy($im);
+        imagedestroy($im2);

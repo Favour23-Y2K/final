@@ -1,0 +1,107 @@
+Fix username and password validations (use javascript to validate before form is submitted)
+
+for the connections, 
+
+0 - declined / disconnected (when declined, you cannot request an addition within 48 hours)
+1 - requested
+2 - accepted
+3 - blocked
+
+...remember to switch user 1 and user_ 2 in a case of a new request
+(or just delete their relationship / set as null [make nullable field])
+really, just do whatever is suitable
+
+for the chat,
+
+0 - removed / exited (when declined, you cannot request an addition within 24 hours)
+1 - admin
+2 - member
+3 - banned
+
+
+
+{% comment %} *** user posts {% endcomment %}
+
+
+ $_SESSION['pending'] 
+ $_SESSION['requests']
+
+ $_SESSION['friends']
+    $_SESSION['friends']['user_id']
+    $_SESSION['friends']['chat_id']
+
+{% comment %} 
+user profiles
+    groups in common
+    common members {% endcomment %}
+
+    
+    
+*** Finish working on URL modals - search
+
+{% comment %} *** Move Profile Edit to a different Fancybox Page {% endcomment %}
+
+*** Form Validations (max lengths, etc)
+
+change profile picture
+Edit Bio data
+account
+    privacy
+    security
+    change no
+    delete acceptedinfo
+chat
+notif
+    push messaging
+data useage
+help
+
+**** avatar upload
+
+*** Edit Group info (admin)
+
+*** Chat Media
+
+{% comment %} *** Profile - View all posts (badge if any unseen post) {% endcomment %}
+
+{% comment %} *** on post, if unseen, badge. {% endcomment %}
+
+{% comment %} *** In groups, put footer 'admins' in bootstrap modal - admins {% endcomment %}
+
+
+{% comment %} *** Admin functions {% endcomment %}
+
+chats
+
+*** Creating groups, Posts - floating buttons
+
+*** Nesting a replied message / post (url) and giving id to every message
+
+encryption
+
+max group admins is 6
+
+
+
+**** finish working on profile.php.inc __
+
+**** handle connections, etc
+        User_1 must be the requesting user wether he made previous request or not
+
+        
+align chats to bottom (look it up)
+
+blocking, unblocking - restrict User\
+
+
+retrieve password after three attempts 
+
+
+
+
+Add reactions to messages - with that, add your own emojis
+
+troubleshoot emojis in chatbox
+
+
+Implement search and quick add, work on the posts page to display properly.
